@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Rectangle</title>
+</head>
+<body>
+<script>
+    class Rectangle{
+        constructor(weight,height) {
+            this.weight = weight;
+            this.height = height;
+        }
+        getArea(){
+            let area = this.weight * this.height;
+            return area;
+        }
+    }
+    let retangle = new Rectangle(10,20);
+    console.log(retangle.getArea());
+</script>
+</body>
+</html>
