@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile</title>
+</head>
+<body>
+
+
+<script>
+    class Mobile{
+        constructor(name) {
+            this.name = name;
+            this.msg = "";
+            this.inbox = [];
+            this.outbox = [];
+        }
+        writeMsg(msg){
+            this.msg = msg;
+        }
+        sendMsg(mobile){
+            this.outbox.push(this.msg);
+            mobile.receiveMsg(this.msg);
+        }
+        receiveMsg(msg){
+            this.inbox.push(msg);
+        }
+    }
+    let iphone = new Mobile("Iphone11");
+    let oppo = new Mobile("Oppo");
+    console.log(iphone);
+    console.log(oppo);
+    iphone.writeMsg("hello");
+    iphone.sendMsg(oppo);
+    oppo.writeMsg("Hi there");
+    oppo.sendMsg(iphone);
+
+
+
+</script>
+</body>
+</html>

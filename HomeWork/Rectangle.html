@@ -6,18 +6,28 @@
 </head>
 <body>
 <script>
-    class Rectangle{
-        constructor(weight,height) {
+    class Rectangle {
+        constructor(weight, height) {
             this.weight = weight;
             this.height = height;
         }
-        getArea(){
+
+        getArea() {
             let area = this.weight * this.height;
             return area;
         }
+
+        getPerimeter() {
+            let perimeter = (this.weight + this.height) * 2;
+            return perimeter;
+        }
+
+
     }
-    let retangle = new Rectangle(10,20);
-    console.log(retangle.getArea());
+
+    let retangle = new Rectangle(10, 20);
+    document.write("Dien Tich la : " + retangle.getArea() + "<br>");
+    document.write("Chu vi la : " + retangle.getPerimeter());
 </script>
 </body>
 </html>
