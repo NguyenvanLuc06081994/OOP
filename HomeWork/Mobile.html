@@ -8,34 +8,31 @@
 
 
 <script>
-    class Mobile{
+    class Mobile {
         constructor(name) {
             this.name = name;
             this.msg = "";
             this.inbox = [];
-            this.outbox = [];
+            this.outbox =[];
         }
-        writeMsg(msg){
-            this.msg = msg;
+        writeMsg(message){
+            this.msg = message;
         }
         sendMsg(mobile){
             this.outbox.push(this.msg);
             mobile.receiveMsg(this.msg);
         }
         receiveMsg(msg){
-            this.inbox.push(msg);
+           this.inbox.push(msg);
         }
     }
-    let iphone = new Mobile("Iphone11");
-    let oppo = new Mobile("Oppo");
+    let iphone = new Mobile("iphone");
+    let samsung = new Mobile("samsung");
+
+    iphone.writeMsg("hi there");
+    iphone.sendMsg(samsung);
     console.log(iphone);
-    console.log(oppo);
-    iphone.writeMsg("hello");
-    iphone.sendMsg(oppo);
-    oppo.writeMsg("Hi there");
-    oppo.sendMsg(iphone);
-
-
+    console.log(samsung);
 
 </script>
 </body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AdamEva</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        decrease(){
+            if (this.weight > 0){
+                this.weight--;
+            }
+        }
+        isEmpty(){
+            if(this.weight === 0){
+                return false;
+            }else {
+                return  true;
+            }
+        }
+    }
+    class Human{
+        constructor(name,gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        checkApple(){
+
+        }
+    }
+</script>
+</body>
+</html>
