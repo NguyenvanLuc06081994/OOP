@@ -5,76 +5,62 @@
     <title>Title</title>
 </head>
 <body>
+<img src="lightoff.jpg " style="width: 200px;height: 200px" id="flashLamp">
+<button onclick="denPin.turnOn()">On</button>
+<button onclick="denPin.turnOff()">Off</button>
 <script>
-    class Battery {
+    class Battery{
         constructor(energy) {
             this.energy = energy;
         }
-
-        getEnergy() {
+        setEnergy(energy){
+            this.energy = energy;
+        }
+        getEnergy(){
             return this.energy;
         }
-
-        setEnergy(energy) {
-            this.energy = energy;
-            return energy
-        }
-
-        decreaseEnergy() {
-            if (this.energy > 0) {
-                this.energy--;
-            }
+        decreaseEnergy(){
+            this.energy--;
         }
     }
-
-    class FlashLamp {
+    class FlashLamp{
         constructor(battery) {
+            this.status = false;
             this.battery = battery;
         }
-
-        setBattery(battery) {
-            this.battery = battery;
-            return battery;
+        setBattery(abc){
+            this.battery = abc;
         }
-
-        getBatteryInfo() {
+        getBatteryInfo(){
             return this.battery.getEnergy();
         }
-
-        light() {
-            if (this.status) {
-                alert("lighting");
-            } else {
-                alert("Not Lighting");
+        turnOn(){
+            if (this.getBatteryInfo() <= 0){
+                this.turnOff();
+                alert("run out of battery");
+                return;
+            }
+            this.status = true;
+            this.battery.decreaseEnergy();
+            this.light()
+        }
+        turnOff(){
+            this.status = false;
+            this.battery.decreaseEnergy();
+            this.light()
+        }
+        light(){
+            if (this.status){
+                document.getElementById("flashLamp").src = "lighton.jpg";
+            }else{
+                document.getElementById("flashLamp").src = "lightoff.jpg"
             }
         }
-
-        turnOn() {
-            this.status = true;
-            return true;
-        }
-
-        turnOff() {
-            this.status = false;
-            return false;
-        }
-
     }
-
-    let battery = new Battery();
-    battery.setEnergy(10);
-    let flashLamp = new FlashLamp();
-    flashLamp.setBattery(battery);
-    document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
-    flashLamp.light();
-    document.write("Turn on<br/>");
-    flashLamp.turnOn();
-    battery.decreaseEnergy();
-    flashLamp.light();
-    document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
-    document.write("Turn off<br/>")
-    flashLamp.turnOff();
-    flashLamp.light();
+    let pin = new Battery();
+    pin.setEnergy(10);
+    let denPin = new FlashLamp();
+    denPin.setBattery(pin);
 </script>
 </body>
 </html>

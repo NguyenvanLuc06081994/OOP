@@ -7,35 +7,70 @@
 <body>
 <script>
     class Apple {
-        constructor(weight) {
-            this.weight = weight;
+        constructor() {
+            this.weight = 10;
         }
-        getWeight(){
+
+        getWeight() {
             return this.weight;
         }
-        decrease(){
-            if (this.weight > 0){
-                this.weight--;
-            }
+
+        decrease() {
+            this.weight--;
         }
-        isEmpty(){
-            if(this.weight === 0){
+
+        isEmpty() {
+            if (this.weight > 0) {
+                return true;
+            }
                 return false;
-            }else {
-                return  true;
-            }
         }
+
+
     }
-    class Human{
-        constructor(name,gender, weight) {
+
+    class Human {
+        constructor(name, gender, weight) {
             this.name = name;
             this.gender = gender;
             this.weight = weight;
         }
-        checkApple(){
+
+        checkApple(apple) {
+            return apple.isEmpty();
 
         }
+
+        eat(apple) {
+            if (apple.isEmpty()){
+                apple.decrease();
+                this.weight++;
+            }
+
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
     }
+
+    let apple = new Apple(10);
+    console.log(apple.getWeight());
+
+    let adam = new Human("adam", "male", 50);
+    adam.setWeight(40);
+    adam.eat(apple);
+    console.log(adam);
+    console.log(apple.getWeight());
+
+    // console.log(adam);
+
+
 </script>
 </body>
 </html>
