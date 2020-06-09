@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Television</title>
+</head>
+<body>
+<script>
+    class Tivi{
+        constructor(channel,volume) {
+            this.channel = channel;
+            this.volume= volume;
+            this.status =false;
+        }
+        changeVolumeUP(){
+            this.volume++
+        }
+        changeVolumeDown(){
+            this.volume--;
+        }
+        changeChannelUP(){
+            this.channel++;
+        }
+        changeChannelDown(){
+            this.channel--;
+        }
+        turnOn(){
+            this.status = true;
+            console.log("Tv is On");
+        }
+        turnOff(){
+            this.status = false;
+            console.log("tv is off");
+        }
+    }
+    class Remote{
+        constructor(symbol) {
+            this.symbol = symbol;
+        }
+        getSymbol(){
+            return this.symbol
+        }
+        setSymbol(symbol){
+             this.symbol = symbol;
+        }
+        changeChannel(TV){
+            if (this.getSymbol() === "channelup"){
+                TV.changeChannelUP()
+            }
+            if (this.getSymbol()=== "channeldown"){
+                TV.changeChannelDown();
+            }
+        }
+        changeVolume(TV) {
+            if (this.getSymbol() === "volumelup") {
+                TV.changeVolumeUP();
+            }
+            if (this.getSymbol() === "volumedown") {
+                TV.changeVolumeDown();
+            }
+        }
+
+
+    }
+    let Sony = new Tivi(0,0);
+    let remote = new Remote();
+    remote.setSymbol("channelup");
+    remote.changeChannel(Sony);
+    console.log(Sony.channel);
+</script>
+</body>
+</html>
