@@ -34,21 +34,25 @@
         }
         catchRat(rat){
             if (this.getMaxSpeed() > rat.getSpeed()){
-                rat.speed = 0;
-                this.eatRat(rat);
+                return true;
             }else {
                 console.log("Rat's Speed is faster than Cat's Speed");
             }
         }
-        eatRat(rat){
-            rat.status = false;
-            this.weight += rat.weight;
+        eat(rat){
+            if (this.catchRat(rat) === true){
+                rat.speed = 0;
+                rat.status = false;
+                this.weight += rat.weight;
+            }
+
         }
+
     }
     let jerry = new Rat("jerry",10,10);
     let tom = new Cat("tom",16,8);
     tom.catchRat(jerry);
-    tom.eatRat(jerry);
+    tom.eat(jerry);
     console.log(tom.weight);
     console.log(jerry.speed);
 </script>

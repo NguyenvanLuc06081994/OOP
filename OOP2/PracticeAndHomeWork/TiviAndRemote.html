@@ -6,51 +6,62 @@
 </head>
 <body>
 <script>
-    class Tivi{
-        constructor(channel,volume) {
+    class Tivi {
+        constructor(channel, volume) {
             this.channel = channel;
-            this.volume= volume;
-            this.status =false;
+            this.volume = volume;
+            this.status = false;
         }
-        changeVolumeUP(){
+
+        changeVolumeUP() {
             this.volume++
         }
-        changeVolumeDown(){
+
+        changeVolumeDown() {
             this.volume--;
         }
-        changeChannelUP(){
+
+        changeChannelUP() {
             this.channel++;
         }
-        changeChannelDown(){
+
+        changeChannelDown() {
             this.channel--;
         }
-        turnOn(){
+
+        turnOn() {
             this.status = true;
             console.log("Tv is On");
         }
-        turnOff(){
+
+        turnOff() {
             this.status = false;
             console.log("tv is off");
         }
     }
-    class Remote{
+
+    class Remote {
         constructor(symbol) {
             this.symbol = symbol;
         }
-        getSymbol(){
+
+        getSymbol() {
             return this.symbol
         }
-        setSymbol(symbol){
-             this.symbol = symbol;
+
+        setSymbol(symbol) {
+            this.symbol = symbol;
         }
-        changeChannel(TV){
-            if (this.getSymbol() === "channelup"){
+
+        changeChannel(TV) {
+            if (this.getSymbol() === "channelup") {
                 TV.changeChannelUP()
             }
-            if (this.getSymbol()=== "channeldown"){
+            if (this.getSymbol() === "channeldown") {
                 TV.changeChannelDown();
             }
         }
+
         changeVolume(TV) {
             if (this.getSymbol() === "volumelup") {
                 TV.changeVolumeUP();
@@ -62,7 +73,8 @@
 
 
     }
-    let Sony = new Tivi(0,0);
+
+    let Sony = new Tivi(0, 0);
     let remote = new Remote();
     remote.setSymbol("channelup");
     remote.changeChannel(Sony);
